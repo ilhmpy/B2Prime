@@ -5,6 +5,7 @@
   position: absolute;
   color: #fff;
   font-weight: 400;
+  z-index: 999;
 }
 
 .header__container {
@@ -70,6 +71,7 @@
   font-weight: 400;
   margin-left: 8%;
   cursor: pointer;
+  user-select: none;
 }
 
 .header__nav-link i {

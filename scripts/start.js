@@ -1,9 +1,12 @@
 $(() => {
+
   // constants
 
   const headerMenu = $(".header__menu");
   const header = $(".header");
   const headerLinks = $(".header__nav-link");
+  const headerMenuTab = document.querySelectorAll(".header__menu-tab");
+  const headerMenuTabs = $(".header__menu-tabs");
 
   // показать / убрать меню у хедера
 
@@ -12,26 +15,32 @@ $(() => {
     // для закрытия меню
 
     if (e.target.className == "header__nav-link activeLink") {
-        changeState({"background":"", "backdrop-filter":"blur(0px)"});
+        setTimeout(changeState, 250);
         headerMenu.slideUp();
         headerLinks.removeClass("activeLink");
     }
 
     // для открытия
 
-    else if (e.target.className == "header__nav-link" || e.target.tagName == "I") {
+    else if (e.target.className == "header__nav-link") {
       headerLinks.removeClass("activeLink");
       if (e.target.className == "header__nav-link") {
         $(e.target).addClass("activeLink");
       }
-      changeState();
+      changeState({"background": "rgba(62, 61, 61, 0.1)","backdrop-filter": "blur(80px)"});
       headerMenu.slideDown();
+      headerMenuTab.forEach(tab => {
+        tab.style.display = "none";
+        if (e.target.id == tab.id + "Link") {
+          tab.style.display = "grid";
+        }
+      })
     }
   })
 })
 
 // сменить css элемента
-let  changeState = (
-  cssObj = {"background": "rgba(62, 61, 61, 0.1)","backdrop-filter": "blur(80px)"},
+let changeState = (
+  cssObj = {"background": "","backdrop-filter": "blur(0px)"},
   change = $(".header")
 ) => change.css(cssObj);
