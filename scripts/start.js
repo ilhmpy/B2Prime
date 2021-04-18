@@ -32,7 +32,15 @@ $(() => {
       headerMenuTab.forEach(tab => {
         tab.style.display = "none";
         if (e.target.id == tab.id + "Link") {
-          tab.style.display = "grid";
+
+          // в случае если пользователь зашёл с телефона назначается дисплей блок
+          // (потому что блок имеет другую расстановку на мобильной версии)
+
+          if (screen.width > 1024) {
+            tab.style.display = "grid";
+          } else {
+            tab.style.display = "block";
+          }
         }
       })
     }

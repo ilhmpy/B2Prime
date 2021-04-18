@@ -1,4 +1,62 @@
+/* общие настройки между телефонами и планшетами */
+@media only screen and (max-device-width: 1024px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+  .header__buttons {
+    padding-left: 0px;
+  }
+  .header__nav-title {
+    display: none;
+  }
+  .header__nav-links {
+    padding-left: 20px;
+  }
+  .header__title {
+    grid-template-columns: 30% 70%;
+  }
+  .header__contacts {
+    display: none;
+  }
+  .header__button {
+    float: right;
+    margin-right: 15px;
+  }
+  .header__logo {
+    margin-left: 15px;
+  }
+  .header__nav-links {
+    display: flex;
+    width: 320px;
+    margin: 0 auto;
+  }
+  .header__nav {
+    display: block;
+  }
+  .header__nav-link i {
+    margin-left: 40%;
+  }
+  .header__nav-link {
+    padding-top: 10px;
+  }
+  .header__menu {
+    margin-top: 150px;
+    overflow: visible;
+    height: 530px;
+  }
+  .header__menu-tab {
+    display: block;
+    padding-left: 3%;
+  }
+  .header {
+    height: 150px;
+  }
+}
+
 /* 320 - 480 */
 @media only screen and (max-device-width: 480px) {
-  
+  .header__nav-link:first-child {
+    margin-left: 0%;
+  }
 }
