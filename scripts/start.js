@@ -8,25 +8,30 @@ $(() => {
   // показать / убрать меню у хедера
 
   $(".header__nav-links").on("click", e => {
+
     // для закрытия меню
 
     if (e.target.className == "header__nav-link activeLink") {
-        header.css({"background": "", "backdrop-filter": "blur(0px)"});
+        changeState({"background":"", "backdrop-filter":"blur(0px)"});
         headerMenu.slideUp();
-        headerLinks.removeClass("activeLink")
+        headerLinks.removeClass("activeLink");
     }
+
     // для открытия
 
     else if (e.target.className == "header__nav-link" || e.target.tagName == "I") {
-      headerLinks.removeClass("activeLink")
+      headerLinks.removeClass("activeLink");
       if (e.target.className == "header__nav-link") {
         $(e.target).addClass("activeLink");
       }
-      header.css({
-        "background": "rgba(62, 61, 61, 0.1)",
-        "backdrop-filter": "blur(80px)"
-      })
+      changeState();
       headerMenu.slideDown();
     }
   })
 })
+
+// сменить css элемента
+let  changeState = (
+  cssObj = {"background": "rgba(62, 61, 61, 0.1)","backdrop-filter": "blur(80px)"},
+  change = $(".header")
+) => change.css(cssObj);
