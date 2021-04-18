@@ -10,6 +10,11 @@ a {
 button, input, select {
   border: 0;
   outline: none;
+  background: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 :focus {
@@ -18,6 +23,11 @@ button, input, select {
 
 * {
   box-sizing: border-box;
+}
+
+p, a {
+  padding: 0;
+  margin: 0;
 }
 
 /* wrap-container */

@@ -3,6 +3,8 @@
   height: 144px;
   font-family: 'Karla', sans-serif;
   position: absolute;
+  color: #fff;
+  font-weight: 400;
 }
 
 .header__container {
@@ -11,9 +13,66 @@
 }
 
 .header__title {
+    padding: 40px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    border-bottom: 1px solid rgba(98, 224, 126, 0.3);
+}
 
+.header__logo img {
+  width: 107.16px;
+  height: 24.83px;
+}
+
+.header__buttons {
+  padding: 0px 0px 0px 290px;
+}
+
+.header__buttons span {
+  line-height: 16px;
+  font-size: .80em;
+}
+
+.header__button {
+  width: 130px;
+  height: 30px;
+  border: 1px solid #62E07E;
+  color: #fff;
+  margin-left: 20px;
+  transition: .50s;
+}
+
+.header__button:hover {
+  background: #62E07E;
 }
 
 .header__nav {
+  padding-top: 3px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
 
+.header__nav span {
+  font-size: .80em;
+  line-height: 18px;
+  padding-top: 7px;
+}
+
+.header__nav-links {
+    width: 100%;
+   padding-left: 170px;
+}
+
+.header__nav-link {
+  color: #fff;
+  font-size: .70em;
+  line-height: 18px;
+  font-weight: 400;
+  margin-left: 8%;
+}
+
+.header__nav-link i {
+  font-size: 15px;
+  margin-top: -8px;
+  vertical-align: middle;
 }
