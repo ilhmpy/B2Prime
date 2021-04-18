@@ -60,7 +60,7 @@
 
 .header__nav-links {
     width: 100%;
-   padding-left: 170px;
+   padding-left: 140px;
 }
 
 .header__nav-link {
@@ -69,10 +69,17 @@
   line-height: 18px;
   font-weight: 400;
   margin-left: 8%;
+  cursor: pointer;
 }
 
 .header__nav-link i {
   font-size: 15px;
   margin-top: -8px;
+  margin-left: 3px;
   vertical-align: middle;
+}
+
+/* стили для активных в чём либо элементов */
+.activeLink {
+  color: #62E07E;
 }
