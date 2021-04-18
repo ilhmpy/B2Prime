@@ -1,0 +1,6 @@
+.home {
+  width: 100%;
+  height: 735px;
+  background: url("../assets/start-home-bg.svg") no-repeat center;
+  background-size: cover;
+}

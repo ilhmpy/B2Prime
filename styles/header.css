@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  height: 144px;
+  font-family: 'Karla', sans-serif;
+  position: absolute;
+}
+
+.header__container {
+  display: grid;
+  grid-template-rows: 70% 30%;
+}
+
+.header__title {
+
+}
+
+.header__nav {
+
+}
