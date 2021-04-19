@@ -3,4 +3,97 @@
   height: 735px;
   background: url("../assets/start-home-bg.svg") no-repeat center;
   background-size: cover;
+  font-family: 'Karla', sans-serif;
+  padding-top: 200px;
+}
+
+.home__about-text {
+  width: 50%;
+  height: 500px;
+}
+
+.home__untitle {
+  color: #62E07E;
+  font-size: .80em;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home__title {
+  color: #F5F5F5;
+  font-weight: bold;
+  font-size: 3.20em;
+  line-height: 95%;
+  letter-spacing: -2px;
+}
+
+.home__btn {
+  background: #62E07E;
+  width: 165px;
+  height: 48px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: .70em;
+  line-height: 17px;
+  text-align: center;
+  color: #1C1C1C;
+  border: 1px solid #62E07E;
+  transition: .50s;
+}
+
+.home__btn:hover {
+  background: 0;
+  color: #62E07E;
+}
+
+.home__scroll {
+  width: 320px;
+  height: 10px;
+  transform: rotate(90deg);
+  margin-left: 850px;
+  margin-top: -220px;
+  color: #D7D7D7;
+  font-weight: bold;
+  font-size: .80em;
+  line-height: 15px;
+  cursor: default;
+}
+
+.home__scroll span {
+  display: inline-block;
+  height: 3px;
+  width: 100px;
+  margin-left: 20px;
+  vertical-align: middle;
+  background: #62E07E;
+}
+
+.pagination {
+  width: 70%;
+  height: 30px;
+  margin-top: 150px;
+  float: right;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.pagination__btn {
+  width: 100px;
+  height: 30px;
+  color: #F5F5F5;
+  font-weight: bold;
+  line-height: 21px;
+  font-size: .80em;
+  display: flex;
+}
+
+.pagination__circle {
+  display: block;
+  vertical-align: middle;
+  width: 30.06px;
+  height: 30.06px;
+  border-radius: 30px;
+  border: 1px solid #F5F5F5;
 }
