@@ -4,6 +4,9 @@
   background: url("../assets/start-home-bg.svg") no-repeat center;
   background-size: cover;
   font-family: 'Karla', sans-serif;
+}
+
+.home__container {
   padding-top: 200px;
 }
 
@@ -23,10 +26,11 @@
 
 .home__title {
   color: #F5F5F5;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 3.20em;
   line-height: 95%;
   letter-spacing: -2px;
+  font-style: normal;
 }
 
 .home__btn {
@@ -71,7 +75,7 @@
 }
 
 .pagination {
-  width: 70%;
+  width: 80%;
   height: 30px;
   margin-top: 150px;
   float: right;
@@ -80,20 +84,49 @@
 }
 
 .pagination__btn {
-  width: 100px;
+  width: 145px;
   height: 30px;
-  color: #F5F5F5;
+  color: #D4D4D4;
   font-weight: bold;
   line-height: 21px;
   font-size: .80em;
   display: flex;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .pagination__circle {
+  margin-right: 10px;
   display: block;
-  vertical-align: middle;
+  margin-top: -3px;
   width: 30.06px;
   height: 30.06px;
   border-radius: 30px;
-  border: 1px solid #F5F5F5;
+  border: 1.72px solid #D4D4D4;
+  text-align: center;
+  padding-top: 2px;
+  font-size: .70em;
+}
+
+.default-circle::before {
+  content: "";
+  display: inline-block;
+  background: #D4D4D4;
+  margin-top: 3px;
+  margin-left: 1px;
+  width: 9.45px;
+  height: 9.45px;
+  border-radius: 9.45px;
+}
+
+.activeBtn {
+  color: #F5F5F5;
+}
+
+.activeBtn > .pagination__circle {
+  border-color: #F5F5F5;
+}
+
+.activeBtn > .pagination__circle::before {
+  background: #F5F5F5;
 }
