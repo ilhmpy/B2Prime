@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="./styles/global.css"> <!-- global -->
     <link rel="stylesheet" href="./styles/header.css"> <!-- header -->
     <link rel="stylesheet" href="./styles/home.css"> <!-- home -->
+    <link rel="stylesheet" href="./styles/markets.css"> <!-- markets -->
     <!-- modals -->
     <link rel="stylesheet" href="./styles/header-menu.css"> <!-- header menu modal -->
     <!-- media queries styles -->
     <link rel="stylesheet" href="./styles/media-queries/media-header.css"> <!-- media header -->
     <link rel="stylesheet" href="./styles/media-queries/media-home.css"> <!-- media home -->
+    <link rel="stylesheet" href="./styles/media-queries/media-markets.css"> <!-- media markets -->
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script> <!-- jquery -->
@@ -140,26 +142,36 @@
               <h3 class="home__untitle">best for institutional clients</h3>
               <h1 class="home__title">Trade. Hedge. Execute.</h1>
               <button class="home__btn">Open account</button>
-            </div>
-            <div class="home__scroll">
-               Scroll <span></span>
+              <div class="home__scroll">Scroll <span></span></div>
             </div>
             <div class="pagination">
               <div class="pagination__btn activeBtn">
                 <div class="pagination__circle default-circle"></div>Start
               </div>
-              <div class="pagination__btn">
+              <div class="pagination__btn" id="markets">
                 <div class="pagination__circle">01</div>Markets
               </div>
-              <div class="pagination__btn">
+              <div class="pagination__btn" id="platforms">
                 <div class="pagination__circle">02</div>Platforms
               </div>
-              <div class="pagination__btn">
-                <div class="pagination__circle">03</div>Connectiviy
+              <div class="pagination__btn" id="connectivity">
+                <div class="pagination__circle">03</div>Connectivity
               </div>
-              <div class="pagination__btn">
+              <div class="pagination__btn" id="advantages">
                 <div class="pagination__circle">04</div>Advantages
               </div>
+            </div>
+          </main>
+        </main>
+        <!--- markets -->
+        <main class="markets">
+          <main class="container markets__container">
+            <div class="markets__slider">
+              <div class="slider__switchers">
+                <span class="slider__switcher activeSwitcher">Markets</span>
+                <span class="slider__switcher">Platforms</span>
+              </div>
+              <div class="slider__slides"></div>
             </div>
           </main>
         </main>

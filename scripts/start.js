@@ -7,6 +7,7 @@ $(() => {
   const headerLinks = $(".header__nav-link");
   const headerMenuTab = document.querySelectorAll(".header__menu-tab");
   const headerMenuTabs = $(".header__menu-tabs");
+  const sliderSwitcher = $(".slider__switcher");
 
   // показать / убрать меню у хедера
 
@@ -45,6 +46,19 @@ $(() => {
       })
     }
   })
+
+  // изменение слайдера с помощью переключателей
+  $(".slider__switchers").on("click", e => {
+    if (e.target.className == "slider__switcher") {
+      sliderSwitcher.removeClass("activeSwitcher");
+      $(e.target).addClass("activeSwitcher");
+    }
+  })
+
+  // изменение кнопок прогресса пролистывания по сайту
+  document.addEventListener("scroll", e => {
+      if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
+   })
 })
 
 // сменить css элемента
@@ -52,3 +66,18 @@ let changeState = (
   cssObj = {"background": "","backdrop-filter": "blur(0px)"},
   change = $(".header")
 ) => change.css(cssObj);
+
+const paginationBtn = document.querySelectorAll(".pagination__btn");
+const paginationBtns = $(".pagination__btn");
+
+// сменить пагинацию
+function changePaginationProgress(
+  addPagination,
+  deletePaginations = $(".pagination__btn"),
+  addPaginationBtn = document.querySelectorAll(".pagination__btn")
+) {
+  deletePaginations.removeClass("activeBtn");
+  addPaginationBtn.forEach(btn => {
+    if (btn.id == addPagination) btn.classList.add("activeBtn");
+  });
+}

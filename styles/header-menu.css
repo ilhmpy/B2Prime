@@ -5,7 +5,7 @@
   backdrop-filter: blur(80px);
   margin-top: 144px;
   position: absolute;
-  z-index: 0;
+  z-index: 999;
   display: none;
   overflow: hidden;
   font-family: 'Karla', sans-serif;
@@ -73,12 +73,4 @@
 
 .asset {
   color: #EA0C0C;
-}
-
-#platforms {
-  display: none;
-}
-
-#company {
-  display: none;
 }
