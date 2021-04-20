@@ -8,19 +8,15 @@ $(() => {
   const headerMenuTab = document.querySelectorAll(".header__menu-tab");
   const headerMenuTabs = $(".header__menu-tabs");
   const sliderSwitcher = $(".slider__switcher");
-  const sliderSlides = document.querySelector(".slider__slides");
+  const sliderSlides = document.querySelectorAll(".slider__slides");
+  const sliderCard = $(".slider__card");
 
-  // начальная позиция слайдера
 
-  let initialPosition = 0;
+  // текущая позиция
+  let currentPosition = 0;
 
-  // идёт ли в данный момент движение слайдера или нет
-
-  let moving = false;
-
-  // сохранение позиции
-
-  let transform = 0;
+  // на сколько карточек идёт скролл
+  let slidesToScroll = 3;
 
   // показать / убрать меню у хедера
 
@@ -50,55 +46,40 @@ $(() => {
           // в случае если пользователь зашёл с телефона назначается дисплей блок
           // (потому что блок имеет другую расстановку на мобильной версии)
 
-          if (screen.width > 1024) {
-            tab.style.display = "grid";
-          } else {
-            tab.style.display = "block";
-          }
+          if (screen.width > 1024) tab.style.display = "grid";
+          else tab.style.display = "block";
         }
       })
     }
   })
 
-  // изменение слайдера с помощью переключателей
-  $(".slider__switchers").on("click", e => {
-    if (e.target.className == "slider__switcher") {
-      sliderSwitcher.removeClass("activeSwitcher");
-      $(e.target).addClass("activeSwitcher");
-    }
+    // изменение слайдера с помощью переключателей
+    $(".slider__switchers").on("click", e => {
+      if (e.target.className == "slider__switcher") {
+        sliderSwitcher.removeClass("activeSwitcher");
+        $(e.target).addClass("activeSwitcher");
+        $(".slider__slides").each((index, item) => {
+          item.style.display = "none";
+          item.style.transform = "translateX(0px)";
+          if (item.id == e.target.id + "-slider") {
+            item.style.display = "flex";
+            if (item.id == "s-slider") slidesToScroll = 1;
+            else slidesToScroll = 3;
+          }
+        })
+      }
+    })
+
+    // изменение кнопок прогресса пролистывания по сайту
+    document.addEventListener("scroll", e => {
+        if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
   })
 
-  // изменение кнопок прогресса пролистывания по сайту
-  document.addEventListener("scroll", e => {
-      if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
-   })
-
-   // слайдер (движение мышью)
-   $(".slider__slides").on("mousedown", e => {
-      initalPosition = e.pageX;
-      moving = true;
-
-      // инициалазиация последней позиции слайдера после отпускания мыши
-
-      const transformMatrix = window.getComputedStyle(sliderSlides).getPropertyValue("transform");
-
-      if (transformMatrix != "none") {
-        transform = parseInt(transformMatrix.split(",")[4].trim());
-      };
-   });
-
-   // вешаю обработчик события движения мыши на весь документ дабы определить куда двигает пользователь мышь при нажатии на слайдер
-
-   window.addEventListener("mousemove", e => {
-      if (moving) {
-        const currentPosition = e.pageX;
-        const diff = currentPosition - initialPosition;
-        sliderSlides.style.transform = `translateX(${diff + transform}px)`;
-      }
-   })
-
-   // изменение состояния движения слайдера
-   window.addEventListener("mouseup", e => moving = false);
+  // слайдер по нажатию на стрелочки
+  $(".slider__arrows").on("click", e => {
+    if (e.target.className == "fas fa-chevron-right") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll);
+    if (e.target.className == "fas fa-chevron-left") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll, "-");
+  })
 })
 
 // сменить css элемента
@@ -107,11 +88,9 @@ let changeState = (
   change = $(".header")
 ) => change.css(cssObj);
 
-const paginationBtn = document.querySelectorAll(".pagination__btn");
-const paginationBtns = $(".pagination__btn");
 
 // сменить пагинацию
-function changePaginationProgress(
+function changePaginationProgress (
   addPagination,
   deletePaginations = $(".pagination__btn"),
   addPaginationBtn = document.querySelectorAll(".pagination__btn")
@@ -120,4 +99,24 @@ function changePaginationProgress(
   addPaginationBtn.forEach(btn => {
     if (btn.id == addPagination) btn.classList.add("activeBtn");
   });
+}
+
+// движений слайдов
+function moveSlider (
+  sliderSlides, currentPosition,
+  sliderCard, slidesToScroll,
+  type = "+", regPx = /[-0-9.]+(?=px)/
+) {
+  sliderSlides.forEach(slide => {
+    if (type == "+") currentPosition += sliderCard.width() * slidesToScroll;
+    else currentPosition -= sliderCard.width() * slidesToScroll;
+    slide.style.transform = `translateX(${currentPosition}px)`;
+    if (checkTransform(regPx, slide.style.transform)) {
+      slide.style.transform = `translateX(0px)`;
+    }
+  })
+}
+
+function checkTransform(regPx, transform) {
+  if (transform.match(regPx)[0] > 500) return true;
 }

@@ -8,7 +8,7 @@
 .markets__container {
   padding-top: 100px;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .markets__slider {
@@ -37,6 +37,7 @@
   color: #4d4d4d;
   border-bottom: 1px solid #666666;
   transition: .30s ease-in-out;
+  user-select: none;
 }
 
 .slider__switcher:first-child {
@@ -82,14 +83,16 @@
   height: 400px;
   display: flex;
   flex-shrink: 0;
+  transition: 1s;
+  transform: translateX(0px);
 }
 
 .slider__card {
   width: 300px;
   height: 380px;
   min-width: 300px;
+  max-height: 380px;
   margin-left: 30px;
-  cursor: grabbing;
   user-select: none;
   touch-action: pan-y;
 }
@@ -162,4 +165,43 @@
 #six-card {
   background: url("../assets/card4.svg") center no-repeat;
   background-size: cover;
+}
+
+#seven-card {
+  background: url("../assets/onezero.svg");
+  background-size: cover;
+}
+
+#eight-card {
+  background: url("../assets/trader.svg");
+  background-size: cover;
+}
+
+#nine-card {
+  background: url("../assets/onezero.svg");
+  background-size: cover;
+}
+
+.slider__arrows {
+  width: 150px;
+  height: 46px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-right: 50px;
+  float: right;
+}
+
+.slider__arrows i {
+  font-size: 46px;
+  cursor: pointer;
+  color: #737373;
+}
+
+#f-slider {
+  
+}
+
+#s-slider {
+  display: none;
 }
