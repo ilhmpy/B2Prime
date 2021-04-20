@@ -8,6 +8,19 @@ $(() => {
   const headerMenuTab = document.querySelectorAll(".header__menu-tab");
   const headerMenuTabs = $(".header__menu-tabs");
   const sliderSwitcher = $(".slider__switcher");
+  const sliderSlides = document.querySelector(".slider__slides");
+
+  // начальная позиция слайдера
+
+  let initialPosition = 0;
+
+  // идёт ли в данный момент движение слайдера или нет
+
+  let moving = false;
+
+  // сохранение позиции
+
+  let transform = 0;
 
   // показать / убрать меню у хедера
 
@@ -59,6 +72,33 @@ $(() => {
   document.addEventListener("scroll", e => {
       if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
    })
+
+   // слайдер (движение мышью)
+   $(".slider__slides").on("mousedown", e => {
+      initalPosition = e.pageX;
+      moving = true;
+
+      // инициалазиация последней позиции слайдера после отпускания мыши
+
+      const transformMatrix = window.getComputedStyle(sliderSlides).getPropertyValue("transform");
+
+      if (transformMatrix != "none") {
+        transform = parseInt(transformMatrix.split(",")[4].trim());
+      };
+   });
+
+   // вешаю обработчик события движения мыши на весь документ дабы определить куда двигает пользователь мышь при нажатии на слайдер
+
+   window.addEventListener("mousemove", e => {
+      if (moving) {
+        const currentPosition = e.pageX;
+        const diff = currentPosition - initialPosition;
+        sliderSlides.style.transform = `translateX(${diff + transform}px)`;
+      }
+   })
+
+   // изменение состояния движения слайдера
+   window.addEventListener("mouseup", e => moving = false);
 })
 
 // сменить css элемента
