@@ -1,3 +1,29 @@
 @media only screen and (max-device-width: 480px) {
-  
+  .markets__container {
+    padding-top: 10px;
+  }
+  .markets__slider {
+    float: none;
+    height: 700px;
+  }
+  .slider__arrows {
+    
+  }
+  .markets__slides {
+    height: 390px;
+  }
+  .slider__slides {
+    margin-left: 10px;
+  }
+  .slider__switchers {
+    display: block;
+    width: 70%;
+    height: 200px;
+    padding-top: 5px;
+    margin: 0 auto;
+  }
+  .slider__switcher {
+    margin-top: 35px;
+    margin-left: 0;
+  }
 }

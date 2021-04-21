@@ -13,10 +13,30 @@ $(() => {
 
 
   // текущая позиция
+
   let currentPosition = 0;
 
   // на сколько карточек идёт скролл
+
   let slidesToScroll = 3;
+
+  // движение слайдера на телефоне
+
+  let moving = false;
+
+  // переменная инициализации touchstart
+
+  let init = 0;
+
+  // переменная текущей позиции сенсорного движения
+
+  let currentTouchPosition = 0;
+
+  // регулярное выражение вычисления позиции по X у слайдера
+  const regPx = /[-0-9.]+(?=px)/;
+
+  // позиция со стиля
+  let stylePosition = 0;
 
   // показать / убрать меню у хедера
 
@@ -80,6 +100,8 @@ $(() => {
     if (e.target.className == "fas fa-chevron-right") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll);
     if (e.target.className == "fas fa-chevron-left") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll, "-");
   })
+
+
 })
 
 // сменить css элемента
@@ -108,6 +130,9 @@ function moveSlider (
   type = "+", regPx = /[-0-9.]+(?=px)/
 ) {
   sliderSlides.forEach(slide => {
+    if (screen.width < 480) {
+      slidesToScroll = 2;
+    }
     if (type == "+") currentPosition += sliderCard.width() * slidesToScroll;
     else currentPosition -= sliderCard.width() * slidesToScroll;
     slide.style.transform = `translateX(${currentPosition}px)`;
@@ -117,6 +142,4 @@ function moveSlider (
   })
 }
 
-function checkTransform(regPx, transform) {
-  if (transform.match(regPx)[0] > 500) return true;
-}
+const checkTransform = (regPx, transform) => { if (transform.match(regPx)[0] > 500) return true };
