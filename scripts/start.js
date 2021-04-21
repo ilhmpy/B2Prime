@@ -113,36 +113,40 @@ $(() => {
     if (e.target.className == "fas fa-chevron-left") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll, "-");
   });
 
-  // слайдер по движению пальца
-  document.addEventListener("touchstart", touchStart);
 
+  sliderSlides.forEach(slide => slide.style.transform = "translate3d(0px, 0px, 0px)");
+
+  // слайдер по движению пальца
+  $(".slider__slides").on("touchstart", touchStart);
+
+  // конец зажатия пальца
   function touchEnd(e) {
-    moving = false
-    final = init - x1;
-    
+    moving = false;
+    sliderSlides.forEach(slide => {
+      final = slide.style.transform.match(regPx)[0];
+    })
     document.removeEventListener("touchmove", touchMove);
     document.removeEventListener("touchend", touchEnd);
   }
 
+  // движение пальцем
   function touchMove(e) {
     if (moving) {
       x2 = x1 - e.touches[0].clientX;
       x1 = e.touches[0].clientX;
       sliderSlides.forEach(slide => {
-        transform = +slide.style.transform.match(regPx);
+        transform = slide.style.transform.match(regPx)[0];
         slide.style.transform = `translate3d(${transform - x2}px, 0px, 0px)`;
       });
     };
   };
 
+  // зажатие пальца
   function touchStart(e) {
     if (screen.width < 481) {
       init = e.touches[0].pageX;
       moving = true;
-      sliderSlides.forEach(slide => {
-        slide.style.transform = `translate3d(${final}px, 0px, 0px)`;
-      })
-
+      init = x1 = e.touches[0].clientX;
       // вешаем событие движения
       document.addEventListener("touchmove", touchMove);
 
