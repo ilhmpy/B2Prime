@@ -33,6 +33,14 @@
   }
 }
 
-@media only screen and (min-device-width: 491px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1300px) {
+  .markets__slider {
+    width: 90%;
+  }
+}
 
+@media only screen and (min-device-width: 1920px) {
+  .markets__slider {
+    width: 100%;
+  }
 }

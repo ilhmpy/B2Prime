@@ -1,3 +1,5 @@
+
+
 $(() => {
 
   // constants
@@ -10,22 +12,19 @@ $(() => {
   const sliderSwitcher = $(".slider__switcher");
   const sliderSlides = document.querySelectorAll(".slider__slides");
   const sliderCard = $(".slider__card");
-
+  const analyticsBtn = $(".analytics__btn");
+  const analyticsPage = $(".analytics__page");
 
   // текущая позиция
-
   let currentPosition = 0;
 
   // на сколько карточек идёт скролл
-
   let slidesToScroll = 3;
 
   // движение слайдера на телефоне
-
   let moving = false;
 
   // переменная инициализации touchstart
-
   let init = 0;
 
   // первая позиция по X
@@ -41,7 +40,6 @@ $(() => {
   let final = 0;
 
   // переменная текущей позиции сенсорного движения
-
   let currentTouchPosition = 0;
 
   // регулярное выражение вычисления позиции по X у слайдера
@@ -51,11 +49,9 @@ $(() => {
   let stylePosition = 0;
 
   // показать / убрать меню у хедера
-
   $(".header__nav-links").on("click", e => {
 
     // для закрытия меню
-
     if (e.target.className == "header__nav-link activeLink") {
         setTimeout(changeState, 250);
         headerMenu.slideUp();
@@ -63,13 +59,16 @@ $(() => {
     }
 
     // для открытия
-
     else if (e.target.className == "header__nav-link") {
       headerLinks.removeClass("activeLink");
       if (e.target.className == "header__nav-link") {
         $(e.target).addClass("activeLink");
       }
-      changeState({"background": "rgba(62, 61, 61, 0.1)","backdrop-filter": "blur(80px)"});
+      if (screen.width > 1024) {
+        changeState({"background": "rgba(62, 61, 61, 0.1)","backdrop-filter": "blur(80px)"});
+      } else {
+        changeState({"background": "rgba(62, 61, 61, 98%)","backdrop-filter": "blur(0px)"});
+      }
       headerMenu.slideDown();
       headerMenuTab.forEach(tab => {
         tab.style.display = "none";
@@ -150,10 +149,8 @@ $(() => {
       init = x1 = e.touches[0].clientX;
 
       sliderSlides.forEach(slide => slide.style.transition = "0s");
-
       // вешаем событие движения
       document.addEventListener("touchmove", touchMove);
-
       // отпускание пальца
       document.addEventListener("touchend", touchEnd);
     };
@@ -169,6 +166,18 @@ $(() => {
       };
     });
   };
+
+  // таб страницы аналитических данных
+  $(".analytics__btn").on("click", e => {
+    if (e.target.className == "analytics__btn") {
+      analyticsBtn.removeClass("activeAnalyticsBtn");
+      $(e.target).addClass("activeAnalyticsBtn");
+      analyticsPage.hide();
+      analyticsPage.each((ind, page) => {
+        if (page.id == e.target.id + "-page") page.style.display = "block";
+      });
+    };
+  });
 });
 
 // сменить css элемента

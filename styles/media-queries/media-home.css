@@ -39,3 +39,24 @@
     height: 360px;
   }
 }
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1300px) {
+  .header__buttons {
+    padding-left: 240px;
+  }
+  .header__nav-links {
+    padding-left: 125px;
+  }
+  .home__scroll {
+    margin-left: 870px;
+  }
+  .pagination {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-device-width: 1920px) {
+  .home__scroll {
+    margin-left: 1020px;
+  }
+}

@@ -44,6 +44,8 @@
     margin-top: 150px;
     overflow: visible;
     height: 530px;
+    background: rgba(62, 61, 61, 98%);
+    backdrop-filter: blur(0px);
   }
   .header__menu-tab {
     display: block;

@@ -13,8 +13,8 @@
 
 .markets__slider {
   width: 95%;
-  height: 500px;
-  float: right;
+  height: 700px;
+  margin-left: 5%;
   max-width: 1179px;
 }
 
@@ -198,10 +198,147 @@
   color: #737373;
 }
 
-#f-slider {
-  
-}
-
 #s-slider {
   display: none;
+}
+
+.analytics__tabs {
+  width: 100%;
+  height: 900px;
+}
+
+.analytics__btns {
+  width: 50%;
+  max-width: 615px;
+  height: 38px;
+  margin-left: 50px;
+  display: flex;
+}
+
+.analytics__btn {
+  width: 30%;
+  max-width: 123px;
+  height: inherit;
+  color: #929292;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  padding-top: 12px;
+  font-size: .60em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.activeAnalyticsBtn {
+  background: linear-gradient(0deg, #363636, #363636);
+  border-radius: 2.22222px;
+  color: #fff;
+}
+
+.analytics__pages {
+  width: 100%;
+  height: 500px;
+  background: #161616;
+  border-radius: 2.22222px;
+  color: #929292;
+  font-weight: 400;
+  font-size: .60em;
+  line-height: 16px;
+  margin-top: 30px;
+}
+
+.analytics__fields {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-shrink: 0;
+  padding: 0px 25px 0px 25px;
+  justify-content: space-between;
+}
+
+.analytics__field {
+  width: 10%;
+  max-width: 100px;
+  height: inherit;
+  text-align: center;
+  user-select: none;
+  padding-top: 35px;
+}
+
+.analytics__pages {
+  width: 100%;
+  height: 850px;
+}
+
+.analytics__page {
+  width: 100%;
+  height: 800px;
+}
+
+.analytics__item {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  border-bottom: 1.11px solid #333333;
+  padding: 20px 25px 0px 25px;
+  justify-content: space-between;
+  color: #C3CFD9;
+  font-weight: normal;
+}
+
+.analytics__item:last-child {
+  border-bottom: 0;
+}
+
+.price--red {
+  color: #FF5880;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.item__currency {
+  color: #C3CFD9;
+  font-weight: bold;
+}
+
+.analytics__item span {
+  display: inline-block;
+  padding-top: 10px;
+  width: 10%;
+  text-align: center;
+}
+
+.item__--green {
+  color: #46C261;
+}
+
+
+#se-page {
+  display: none;
+}
+
+#t-page {
+  display: none;
+}
+
+#fo-page {
+  display: none;
+}
+
+#five-page {
+  display: none;
+}
+
+.analytics__about {
+  display: block;
+  width: 100%;
+  height: 66px;
+  font-size: .80em;
+  line-height: 22.4px;
+  font-weight: normal;
+  font-weight: 400;
+  color: #A9A9A9;
+  margin-top: 30px;
+  border-top: 1px solid #46C261;
 }
