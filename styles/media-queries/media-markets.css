@@ -6,14 +6,13 @@
     float: none;
     height: 700px;
   }
-  .slider__arrows {
-    
-  }
   .markets__slides {
     height: 390px;
   }
   .slider__slides {
     margin-left: 10px;
+    transform: translate3d(0px, 0px, 0px);
+    transition: 0s;
   }
   .slider__switchers {
     display: block;
@@ -25,5 +24,8 @@
   .slider__switcher {
     margin-top: 35px;
     margin-left: 0;
+  }
+  .slider__arrows {
+    display: none;
   }
 }

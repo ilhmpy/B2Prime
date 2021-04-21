@@ -28,6 +28,18 @@ $(() => {
 
   let init = 0;
 
+  // первая позиция по X
+  let x1 = 0;
+
+  // вторая позиция по X
+  let x2 = 0;
+
+  // переменная хранящая данные о translate3d() из css кода
+  let transform = 0;
+
+  // финальная позиция пальца
+  let final = 0;
+
   // переменная текущей позиции сенсорного движения
 
   let currentTouchPosition = 0;
@@ -64,14 +76,14 @@ $(() => {
         if (e.target.id == tab.id + "Link") {
 
           // в случае если пользователь зашёл с телефона назначается дисплей блок
-          // (потому что блок имеет другую расстановку на мобильной версии)
+          // (потому что данный элемент имеет другую расстановку на мобильной версии)
 
           if (screen.width > 1024) tab.style.display = "grid";
           else tab.style.display = "block";
-        }
-      })
-    }
-  })
+        };
+      });
+    };
+  });
 
     // изменение слайдера с помощью переключателей
     $(".slider__switchers").on("click", e => {
@@ -85,24 +97,60 @@ $(() => {
             item.style.display = "flex";
             if (item.id == "s-slider") slidesToScroll = 1;
             else slidesToScroll = 3;
-          }
-        })
-      }
-    })
+          };
+        });
+      };
+    });
 
     // изменение кнопок прогресса пролистывания по сайту
     document.addEventListener("scroll", e => {
         if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
-  })
+  });
 
   // слайдер по нажатию на стрелочки
   $(".slider__arrows").on("click", e => {
     if (e.target.className == "fas fa-chevron-right") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll);
     if (e.target.className == "fas fa-chevron-left") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll, "-");
-  })
+  });
 
+  // слайдер по движению пальца
+  document.addEventListener("touchstart", touchStart);
 
-})
+  function touchEnd(e) {
+    moving = false
+    final = init - x1;
+    
+    document.removeEventListener("touchmove", touchMove);
+    document.removeEventListener("touchend", touchEnd);
+  }
+
+  function touchMove(e) {
+    if (moving) {
+      x2 = x1 - e.touches[0].clientX;
+      x1 = e.touches[0].clientX;
+      sliderSlides.forEach(slide => {
+        transform = +slide.style.transform.match(regPx);
+        slide.style.transform = `translate3d(${transform - x2}px, 0px, 0px)`;
+      });
+    };
+  };
+
+  function touchStart(e) {
+    if (screen.width < 481) {
+      init = e.touches[0].pageX;
+      moving = true;
+      sliderSlides.forEach(slide => {
+        slide.style.transform = `translate3d(${final}px, 0px, 0px)`;
+      })
+
+      // вешаем событие движения
+      document.addEventListener("touchmove", touchMove);
+
+      // отпускание пальца
+      document.addEventListener("touchend", touchEnd);
+    };
+  };
+});
 
 // сменить css элемента
 let changeState = (
@@ -121,9 +169,9 @@ function changePaginationProgress (
   addPaginationBtn.forEach(btn => {
     if (btn.id == addPagination) btn.classList.add("activeBtn");
   });
-}
+};
 
-// движений слайдов
+// движение слайдов
 function moveSlider (
   sliderSlides, currentPosition,
   sliderCard, slidesToScroll,
@@ -139,7 +187,7 @@ function moveSlider (
     if (checkTransform(regPx, slide.style.transform)) {
       slide.style.transform = `translateX(0px)`;
     }
-  })
-}
+  });
+};
 
 const checkTransform = (regPx, transform) => { if (transform.match(regPx)[0] > 500) return true };
