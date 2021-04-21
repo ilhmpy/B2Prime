@@ -1,6 +1,6 @@
 .markets {
   width: 100%;
-  height: 2139px;
+  height: 1950px;
   background: #1C1C1C;
   font-family: 'Karla', sans-serif;
 }
@@ -204,7 +204,7 @@
 
 .analytics__tabs {
   width: 100%;
-  height: 900px;
+  height: 1080px;
 }
 
 .analytics__btns {
@@ -334,11 +334,12 @@
   display: block;
   width: 100%;
   height: 66px;
-  font-size: .80em;
+  font-size: .60em;
   line-height: 22.4px;
   font-weight: normal;
   font-weight: 400;
   color: #A9A9A9;
-  margin-top: 30px;
+  margin-top: 50px;
+  padding-top: 20px;
   border-top: 1px solid #46C261;
 }

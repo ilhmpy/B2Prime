@@ -43,5 +43,12 @@ p, a {
   max-width: 1170px;
 }
 
-
-/* скрытые элементы */
+.upbtn {
+  position: fixed;
+  float: right;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  background: #161616;
+  display: block;
+}

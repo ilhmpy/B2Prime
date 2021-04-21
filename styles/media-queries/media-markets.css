@@ -5,6 +5,9 @@
 }
 
 @media only screen and (max-device-width: 480px) {
+  .markets {
+    height: 2200px;
+  }
   .markets__container {
     padding-top: 10px;
   }
@@ -30,6 +33,66 @@
   .slider__switcher {
     margin-top: 35px;
     margin-left: 0;
+  }
+  .analytics__tabs {
+    height: 1600px;
+  }
+  .analytics__pages {
+    height: 1080px;
+  }
+  .analytics__page {
+    height: 1050px;
+  }
+  .analytics__btns {
+    width: 100%;
+    height: 55px;
+    margin-left: 0;
+    padding: 0px 5px 0px 5px;
+  }
+  .analytics__fields {
+    padding: 0px 5px 0px 5px;
+  }
+  .analytics__field {
+    width: 62px;
+    height: 55px;
+    font-size: 1em;
+    margin-left: 5px;
+  }
+  .analytics__pages {
+    font-size: .40em;
+    margin-left: 5px;
+    height: 1100px;
+  }
+  .analytics__page {
+    height: 900px;
+  }
+  .analytics__item {
+    padding-left: 0px;
+    padding-right: 0px;
+    flex-wrap: wrap;
+    height: 100px;
+
+  }
+  .analytics__item span {
+    width: 62px;
+    margin-left: 8px;
+    height: 55px;
+  }
+  .analytics__about {
+    height: 300px;
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 480px) {
+  .analytics__btn {
+    padding-top: 20px;
+  }
+}
+
+@media only screen and (min-device-width: 500px) and (max-device-width: 1024px) {
+  .analytics__about {
+    padding-left: 10px;
   }
 }
 
