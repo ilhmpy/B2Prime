@@ -32,9 +32,10 @@
   .pagination {
     float: none;
     margin: 0 auto;
+    width: 100%;
     margin-top: 80px;
   }
   .home__about-text {
-    height: 300px;
+    height: 360px;
   }
 }

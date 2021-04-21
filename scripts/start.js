@@ -113,7 +113,7 @@ $(() => {
     if (e.target.className == "fas fa-chevron-left") moveSlider(sliderSlides, currentPosition, sliderCard, slidesToScroll, "-");
   });
 
-
+  // дефолтное значение
   sliderSlides.forEach(slide => slide.style.transform = "translate3d(0px, 0px, 0px)");
 
   // слайдер по движению пальца
@@ -137,22 +137,37 @@ $(() => {
       sliderSlides.forEach(slide => {
         transform = slide.style.transform.match(regPx)[0];
         slide.style.transform = `translate3d(${transform - x2}px, 0px, 0px)`;
+        checkerPosition()
       });
     };
   };
 
   // зажатие пальца
   function touchStart(e) {
-    if (screen.width < 481) {
+    if (screen.width < 1025) {
       init = e.touches[0].pageX;
       moving = true;
       init = x1 = e.touches[0].clientX;
+
+      sliderSlides.forEach(slide => slide.style.transition = "0s");
+
       // вешаем событие движения
       document.addEventListener("touchmove", touchMove);
 
       // отпускание пальца
       document.addEventListener("touchend", touchEnd);
     };
+  };
+
+  // проверка позиции слайдера
+  function checkerPosition() {
+    sliderSlides.forEach(slide => {
+      if (Math.abs(transform) > 1646) check(slide);
+      if (transform == 77 || transform > 77) check(slide);
+      if (slide.id == "s-slider") {
+        if (Math.abs(transform) > 951) check(slide);
+      };
+    });
   };
 });
 
@@ -193,5 +208,11 @@ function moveSlider (
     }
   });
 };
+
+// функция исполнитель проверки где находится слайдер
+function check(slide, transition = "1s", translate = 0) {
+  slide.style.transform = `translate3d(${translate}, 0px, 0px)`;
+  slide.style.transition = transition;
+}
 
 const checkTransform = (regPx, transform) => { if (transform.match(regPx)[0] > 500) return true };
