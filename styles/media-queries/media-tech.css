@@ -1,0 +1,41 @@
+@media only screen and (max-device-width: 480px) {
+  .tech {
+    height: 600px;
+  }
+  .tech__container {
+    display: block;
+    padding-top: 0px;
+  }
+  .tech__text-box {
+    margin-left: 0;
+  }
+  .tech__img {
+    width: 30%;
+    margin: 0 auto;
+  }
+  .tech__img img {
+    margin-left: 0;
+    text-align: center;
+  }
+  .tech__title {
+    text-align: center;
+    font-size: 1.20em;
+  }
+  .tech__text {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .tech__btn {
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+  .tech__img img {
+    margin-left: 100px;
+  }
+  .tech__text-box {
+    margin-left: 150px;
+  }
+}

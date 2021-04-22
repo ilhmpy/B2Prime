@@ -1,0 +1,15 @@
+.help {
+  width: 100%;
+  height: 500px;
+  font-family: 'Karla', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+.help__contact {
+  background: #9BFFB1;
+}
+
+.help__map {
+
+}
