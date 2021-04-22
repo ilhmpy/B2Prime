@@ -101,9 +101,17 @@ $(() => {
       };
     });
 
-    // изменение кнопок прогресса пролистывания по сайту
+    // изменение кнопок прогресса пролистывания по сайту, а так же появление кнопки вверх на определенном месте скролла
     document.addEventListener("scroll", e => {
         if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
+        if (pageYOffset > 2027 || pageYOffset == 2027) $(".upbtn").css({"display": "block", "animation": "btnUp 1s 0s ease-in-out"});
+        if (pageYOffset < 500 || pageYOffset == 500) {
+          $(".upbtn").css({
+            "animation": "btnDown 1s 0s ease-in-out",
+            "animation-fill-mode":"forwards"
+          })
+        setTimeout(() => $(".upbtn").css("display", "none"), 1000);
+      };
   });
 
   // слайдер по нажатию на стрелочки
@@ -178,6 +186,12 @@ $(() => {
       });
     };
   });
+
+  // поднятие кнопкой вверх
+  $(".upbtn").on("click", e => {
+    $("html, body").animate({scrollTop: 0}, "3000")
+    changePaginationProgress("", "clear");
+  });
 });
 
 // сменить css элемента
@@ -190,12 +204,16 @@ let changeState = (
 // сменить пагинацию
 function changePaginationProgress (
   addPagination,
+  type = "",
   deletePaginations = $(".pagination__btn"),
   addPaginationBtn = document.querySelectorAll(".pagination__btn")
 ) {
   deletePaginations.removeClass("activeBtn");
   addPaginationBtn.forEach(btn => {
     if (btn.id == addPagination) btn.classList.add("activeBtn");
+    if (type == "clear") {
+      $(".pagination__btn").removeClass("activeBtn");
+    };
   });
 };
 
@@ -208,13 +226,13 @@ function moveSlider (
   sliderSlides.forEach(slide => {
     if (screen.width < 480) {
       slidesToScroll = 2;
-    }
+    };
     if (type == "+") currentPosition += sliderCard.width() * slidesToScroll;
     else currentPosition -= sliderCard.width() * slidesToScroll;
     slide.style.transform = `translateX(${currentPosition}px)`;
     if (checkTransform(regPx, slide.style.transform)) {
       slide.style.transform = `translateX(0px)`;
-    }
+    };
   });
 };
 
@@ -222,6 +240,6 @@ function moveSlider (
 function check(slide, transition = "1s", translate = 0) {
   slide.style.transform = `translate3d(${translate}, 0px, 0px)`;
   slide.style.transition = transition;
-}
+};
 
 const checkTransform = (regPx, transform) => { if (transform.match(regPx)[0] > 500) return true };

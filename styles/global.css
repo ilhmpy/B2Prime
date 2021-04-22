@@ -44,11 +44,37 @@ p, a {
 }
 
 .upbtn {
+  margin-top: -20%;
+  cursor: pointer;
+  z-index: 999999999999999999999;
+  margin-left: 85%;
   position: fixed;
-  float: right;
-  width: 80px;
-  height: 80px;
-  border-radius: 80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
   background: #161616;
-  display: block;
+  display: none;
+  text-align: center;
+  color: #fff;
+  font-size: 1.30em;
+  padding-top: 10px;
+  transition: 1s;
+}
+
+@keyframes btnUp {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes btnDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(300px);
+  }
 }
