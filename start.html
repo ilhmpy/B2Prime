@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="./styles/header.css">  <!-- header -->
     <link rel="stylesheet" href="./styles/home.css"> <!-- home -->
     <link rel="stylesheet" href="./styles/markets.css"> <!-- markets -->
+    <link rel="stylesheet" href="./styles/connectivity.css"> <!-- connectivity -->
     <!-- modals -->
     <link rel="stylesheet" href="./styles/header-menu.css"> <!-- header menu modal -->
     <!-- media queries styles -->
     <link rel="stylesheet" href="./styles/media-queries/media-header.css"> <!-- media header -->
     <link rel="stylesheet" href="./styles/media-queries/media-home.css"> <!-- media home -->
     <link rel="stylesheet" href="./styles/media-queries/media-markets.css"> <!-- media markets -->
+    <link rel="stylesheet" href="./styles/media-queries/media-connectivity.css"> <!-- media connectivity -->
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script> <!-- jquery -->
@@ -163,11 +165,11 @@
             </div>
           </main>
         </main>
-        <!-- button back to up -->
-        <a class="upbtn"><i class="fas fa-chevron-circle-up"></i></a>
         <!--- markets -->
         <main class="markets">
           <main class="container markets__container">
+            <!-- button back to up -->
+            <a class="upbtn"><i class="fas fa-chevron-up"></i></a>
             <div class="markets__slider">
               <div class="slider__switchers">
                 <span class="slider__switcher activeSwitcher" id="f">Markets</span>
@@ -780,6 +782,34 @@
                   No liability whatsoever is accepted by B2Prime for any direct or consequential loss arising from the use of the
                   mentioned above information.
                 </p>
+            </div>
+          </main>
+        </main>
+        <!-- connectivity -->
+        <main class="connectivity">
+          <main class="container connectivity__container">
+            <h3 class="connectivity__title">Connectivity</h3>
+            <div class="connectivity__cards">
+              <div class="connectivity__card">
+                <h3 class="connectivity__card-title">Bridge</h3>
+                <div class="connectivity__text-box">
+                  <img src="./assets/connectivity-right-arrow.svg" alt="arrow">
+                  <p class="connectivity__text">
+                    Facilitates connection between trading servers enabling them to send pricing and orders
+                    from server to server.
+                  </p>
+                </div>
+              </div>
+              <div class="connectivity__card">
+                <h3 class="connectivity__card-title">Fix API</h3>
+                <div class="connectivity__text-box">
+                  <img src="./assets/connectivity-right-arrow.svg" alt="arrow">
+                  <p class="connectivity__text">
+                    Allows for exchange of financial information between a client, trader, investment fund or broker
+                    and a liquidity provider
+                  </p>
+                </div>
+              </div>
             </div>
           </main>
         </main>
