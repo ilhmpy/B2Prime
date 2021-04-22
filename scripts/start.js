@@ -103,15 +103,17 @@ $(() => {
 
     // изменение кнопок прогресса пролистывания по сайту, а так же появление кнопки вверх на определенном месте скролла
     document.addEventListener("scroll", e => {
-        if (pageYOffset > 551 || pageYOffset == 551) changePaginationProgress("markets");
-        if (pageYOffset > 2027 || pageYOffset == 2027) $(".upbtn").css({"display": "block", "animation": "btnUp 1s 0s ease-in-out"});
-        if (pageYOffset < 500 || pageYOffset == 500) {
+        if (pageYOffset >= 551) changePaginationProgress("markets");
+        if (pageYOffset >= 2027) $(".upbtn").css({"display": "block", "animation": "btnUp 1s 0s ease-in-out"});
+        if (pageYOffset <= 500) {
           $(".upbtn").css({
             "animation": "btnDown 1s 0s ease-in-out",
             "animation-fill-mode":"forwards"
           })
         setTimeout(() => $(".upbtn").css("display", "none"), 1000);
       };
+      if (pageYOffset >= 1859) changePaginationProgress("connectivity");
+      if (pageYOffset >= 2904) changePaginationProgress("advantages");
   });
 
   // слайдер по нажатию на стрелочки
@@ -190,7 +192,7 @@ $(() => {
   // поднятие кнопкой вверх
   $(".upbtn").on("click", e => {
     $("html, body").animate({scrollTop: 0}, "3000")
-    changePaginationProgress("", "clear");
+    //changePaginationProgress("", "clear");
   });
 });
 
