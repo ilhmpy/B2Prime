@@ -39,6 +39,7 @@
   }
   .analytics__pages {
     height: 1080px;
+    margin-left: 0;
   }
   .analytics__page {
     height: 1050px;
@@ -60,7 +61,7 @@
   }
   .analytics__pages {
     font-size: .40em;
-    margin-left: 5px;
+    margin-left: 0px;
     height: 1100px;
   }
   .analytics__page {

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./styles/advantages.css"> <!-- advantages -->
     <link rel="stylesheet" href="./styles/tech.css"> <!-- tech -->
     <link rel="stylesheet" href="./styles/help.css"> <!-- help -->
+    <link rel="stylesheet" href="./styles/footer.css"> <!-- footer -->
     <!-- modals -->
     <link rel="stylesheet" href="./styles/header-menu.css"> <!-- header menu modal -->
     <!-- media queries styles -->
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="./styles/media-queries/media-advantages.css"> <!-- media advantages -->
     <link rel="stylesheet" href="./styles/media-queries/media-tech.css"> <!-- media tech -->
     <link rel="stylesheet" href="./styles/media-queries/media-help.css"> <!-- media help -->
+    <link rel="stylesheet" href="./styles/media-queries/media-footer.css"> <!-- media footer -->
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script> <!-- jquery -->
@@ -920,9 +922,51 @@
       </main>
       <!-- help -->
       <main class="help">
-          <div class="help__contact"></div>
-          <div class="help__map"></div>
+          <div class="help__contact">
+            <div class="container help__container">
+                <h2 class="help__contact-title">Hello! How can we help you?</h2>
+                <input type="text" class="help__input" placeholder="Name">
+                <input type="text" class="help__input" placeholder="Email">
+                <input type="text" class="help__input" placeholder="Message">
+                <button class="help__btn">Submit</button>
+            </div>
+          </div>
+          <div class="help__map">
+            <div class="help__here">
+              <span class="help__here-title">We are here!</span>
+              <p class="help__here-text">20 Maple Avenue, San Pedro, CA 90731, California</p>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.582998131273!2d-118.2637418754252!3d34.02891335028331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7d0c2d25625%3A0x9ae889e3c79cfd79!2zTWFwbGUgQXZlICYgRSAyMHRoIFN0LCBMb3MgQW5nZWxlcywgQ0EgOTAwMTUsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1619097174778!5m2!1sru!2sua"
+            allowfullscreen="" loading="lazy"></iframe>
+          </div>
       </main>
+      <!-- footer -->
+      <footer class="footer">
+        <footer class="container footer__container">
+            <div class="footer__links-box">
+              <div class="footer__links">
+                <p class="footer__links-title"><img src="./assets/markets.svg" alt="markets"> Markets</p>
+                <a href="#" class="footer__links-link">FOREX CFD</a>
+                <a href="#" class="footer__links-link">Indicies CFD</a>
+                <a href="#" class="footer__links-link">Commodities CFD</a>
+                <a href="#" class="footer__links-link">Metals CFD</a>
+                <a href="#" class="footer__links-link">Equities CFD</a>
+              </div>
+              <div class="footer__links">
+                <p class="footer__links-title"><img src="./assets/platforms.svg" alt="platforms"> Platforms</p>
+                <a href="#" class="footer__links-link">MetaTrader 4</a>
+                <a href="#" class="footer__links-link">MetaTrader 5</a>
+                <a href="#" class="footer__links-link">One Zero</a>
+              </div>
+              <div class="footer__links">
+                <p class="footer__links-title"><img src="./assets/about.svg" alt="about"> About us</p>
+                <a href="#" class="footer__links-link">About us</a>
+                <a href="#" class="footer__links-link">Legal</a>
+              </div>
+            </div>
+            <div class="footer__text"></div>
+        </footer>
+      </footer>
     </main>
   </body>
 </html>

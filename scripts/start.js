@@ -114,6 +114,7 @@ $(() => {
       };
       if (pageYOffset >= 1859) changePaginationProgress("connectivity");
       if (pageYOffset >= 2904) changePaginationProgress("advantages");
+      if (pageYOffset >= 4188) transitionContent();
   });
 
   // слайдер по нажатию на стрелочки
@@ -190,10 +191,23 @@ $(() => {
   });
 
   // поднятие кнопкой вверх
-  $(".upbtn").on("click", e => {
-    $("html, body").animate({scrollTop: 0}, "3000")
-    //changePaginationProgress("", "clear");
+  $(".upbtn").on("click", e => $("html, body").animate({scrollTop: 0}, "3000"));
+
+  // нажатие на кнопку опускает пользователя вниз
+  $(".tech__btn").on("click", e => {
+    if (screen.width > 480) {
+      $("html, body").animate({scrollTop: 4830}, 800);
+    } else {
+      $("html, body").animate({scrollTop: 7500}, 800);
+    }
+    transitionContent();
   });
+
+  const transitionContent = () => {
+    $(".help__contact-title").css({"animation": "transitionContact 1s 0s ease-in-out","animation-fill-mode": "forwards"});
+    $(".help__input").css({"animation": "transitionContact 1s 0s ease-in-out","animation-fill-mode": "forwards"});
+    $(".help__btn").css({"animation": "transitionContact 1s 0s ease-in-out","animation-fill-mode": "forwards"});
+  };
 });
 
 // сменить css элемента
