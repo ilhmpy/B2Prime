@@ -6,3 +6,4 @@ HTML5, CSS3, JavaScript(ES6+, jQuery).
 После сборки проекта добавлен normalize.css, что улучшает положение сайта на других браузерах.
 Мой TG: @ilhmj23
 Профиль на Weblancer: https://www.weblancer.net/users/ilhmj/
+Работа на хостинге: https://nostalgic-goldwasser-3be5e1.netlify.app
